@@ -2,12 +2,13 @@ require('dotenv').config();
 
 const express = require('express');
 const multer = require('multer');
-const tesseract = require('node-tesseract-ocr');
+const axios = require('axios')
+
 
 const app = express();
 const port = 3000;
 
-const storage = memoryStorage();
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // OCR.space API endpoint
@@ -45,7 +46,7 @@ app.post('/upload', upload.array('images', 10), async (req, res) => {
                 }
             };
 
-            return post(ocrSpaceApiUrl, formData, config)
+            return axios.post(ocrSpaceApiUrl, formData, config)
                 .then(response => response.data)
                 .then(data => {
                     if (data.ParsedResults && data.ParsedResults.length > 0) {
