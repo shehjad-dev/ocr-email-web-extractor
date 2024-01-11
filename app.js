@@ -1,8 +1,8 @@
 require('dotenv').config();
 
-import express from 'express';
-import multer, { memoryStorage } from 'multer';
-import { post } from 'axios';
+const express = require('express');
+const multer = require('multer');
+const tesseract = require('node-tesseract-ocr');
 
 const app = express();
 const port = 3000;
