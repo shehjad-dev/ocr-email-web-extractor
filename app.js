@@ -1,6 +1,11 @@
 const express = require('express');
 const multer = require('multer');
 const tesseract = require('node-tesseract-ocr');
+const tesseractConfig = {
+    // Specify the absolute path to the Tesseract executable
+    binary: '/usr/bin/tesseract',
+    // Other configurations...
+};
 
 const emailRegex = /[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/g;
 const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]|\bwww\.[A-Z0-9.-]+\.[A-Z]{2,})/gi;
