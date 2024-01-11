@@ -3,9 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const axios = require('axios')
+const cors = require('cors');
+
 
 
 const app = express();
+app.use(cors());
 const port = 3000;
 
 const storage = multer.memoryStorage();
