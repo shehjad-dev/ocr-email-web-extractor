@@ -32,39 +32,7 @@ const ocrConfig = {
     psm: 3,
 };
 
-// Route for file upload
-/* app.post('/upload', upload.single('image'), (req, res) => {
-    tesseract
-        .recognize(req.file.path, ocrConfig)
-        .then(text => {
-            console.log('OCR Text:', text);
-            // Here you can add the logic to extract emails and URLs from 'text'
-            res.send(text);
-        })
-        .catch(error => {
-            console.log(error.message);
-            res.status(500).send(error.message);
-        });
-}); */
 
-/* app.post('/upload', upload.single('image'), (req, res) => {
-    tesseract
-        .recognize(req.file.path, ocrConfig)
-        .then(text => {
-            console.log('OCR Text:', text);
-
-            // Extract emails and URLs
-            const emails = text.match(emailRegex) || [];
-            const urls = text.match(urlRegex) || [];
-
-            // Respond with arrays of emails and URLs
-            res.json({ emails, urls });
-        })
-        .catch(error => {
-            console.log(error.message);
-            res.status(500).send(error.message);
-        });
-}); */
 
 app.post('/upload', upload.single('image'), (req, res) => {
     tesseract
